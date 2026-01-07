@@ -1,6 +1,6 @@
-# Magento 2 Testimonial Module with Enhanced GraphQL APIs
+# Magento 2 Testimonial Module with GraphQL APIs
 
-This repository contains a **Magento 2 Testimonial** that demonstrates how to implement **GraphQL**.
+This repository contains a **Testimonial** module with **GraphQL** APIs.
 
 ## Key Features
 
