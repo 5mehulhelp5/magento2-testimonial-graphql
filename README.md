@@ -1,6 +1,6 @@
 # Magento 2 Testimonial Module with Enhanced GraphQL APIs
 
-This repository contains a **Magento 2 Testimonial** that demonstrates how to implement **GraphQL** in Magento 2.
+This repository contains a **Magento 2 Testimonial** that demonstrates how to implement **GraphQL**.
 
 ## Key Features
 
@@ -15,7 +15,7 @@ This repository contains a **Magento 2 Testimonial** that demonstrates how to im
 
 ## Requirements
 
-- Magento Open Source or Adobe Commerce **2.4.5+**
+- Magento Open Source **2.4.5+**
 - PHP **8.1+**
 
 ## Module Information
@@ -577,7 +577,7 @@ mutation {
 
 ---
 
-## 🚀 Testing with GraphQL Playground
+## Testing with GraphQL Playground
 
 1. Navigate to: `https://your-magento-site.com/graphql`
 2. Use the schema explorer to see all available fields
@@ -586,7 +586,7 @@ mutation {
 
 ---
 
-## 📚 Additional Resources
+## Additional Resources
 
 - **Admin Panel**: `/admin/testimonial/testimonial/index`
 - **Frontend Listing**: `/testimonial`
