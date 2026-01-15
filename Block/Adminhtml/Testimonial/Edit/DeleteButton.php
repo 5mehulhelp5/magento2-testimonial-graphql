@@ -1,11 +1,11 @@
 <?php
 /**
- * Copyright © Ashokkumar. All rights reserved.
+ * Copyright © Ashokdubariya. All rights reserved.
  */
 
 declare(strict_types=1);
 
-namespace Ashokkumar\Testimonial\Block\Adminhtml\Testimonial\Edit;
+namespace Ashokdubariya\Testimonial\Block\Adminhtml\Testimonial\Edit;
 
 use Magento\Framework\App\RequestInterface;
 use Magento\Framework\UrlInterface;

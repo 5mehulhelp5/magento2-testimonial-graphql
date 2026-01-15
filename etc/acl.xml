@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!--
 /**
- * Copyright © Ashokkumar. All rights reserved.
+ * Copyright © Ashokdubariya. All rights reserved.
  */
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
@@ -9,9 +9,9 @@
         <resources>
             <resource id="Magento_Backend::admin">
                 <resource id="Magento_Backend::content">
-                    <resource id="Ashokkumar_Testimonial::testimonial" title="Testimonials" sortOrder="50">
-                        <resource id="Ashokkumar_Testimonial::save" title="Save Testimonial" sortOrder="10"/>
-                        <resource id="Ashokkumar_Testimonial::delete" title="Delete Testimonial" sortOrder="20"/>
+                    <resource id="Ashokdubariya_Testimonial::testimonial" title="Testimonials" sortOrder="50">
+                        <resource id="Ashokdubariya_Testimonial::save" title="Save Testimonial" sortOrder="10"/>
+                        <resource id="Ashokdubariya_Testimonial::delete" title="Delete Testimonial" sortOrder="20"/>
                     </resource>
                 </resource>
             </resource>

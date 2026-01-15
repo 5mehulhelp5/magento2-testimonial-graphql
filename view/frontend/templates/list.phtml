@@ -1,20 +1,16 @@
 <?php
 /**
- * @var \Ashokkumar\Testimonial\Block\TestimonialList $block
+ * @var \Magento\Framework\View\Element\Template $block
+ * @var \Ashokdubariya\Testimonial\ViewModel\TestimonialList $viewModel
  * @var \Magento\Framework\Escaper $escaper
  */
-$testimonials = $block->getTestimonials();
+$viewModel = $block->getData('view_model');
+$testimonials = $viewModel->getTestimonials();
 ?>
 
 <div class="testimonials-page">
-    <?php /* <div class="page-title-wrapper">
-        <h1 class="page-title">
-            <span class="base"><?= $escaper->escapeHtml(__('Customer Testimonials')) ?></span>
-        </h1>
-    </div> */ ?>
-
     <div class="testimonials-actions">
-        <a href="<?= $escaper->escapeUrl($block->getSubmitUrl()) ?>" class="action primary">
+        <a href="<?= $escaper->escapeUrl($viewModel->getSubmitUrl()) ?>" class="action primary">
             <span><?= $escaper->escapeHtml(__('Submit Your Testimonial')) ?></span>
         </a>
     </div>
@@ -29,11 +25,8 @@ $testimonials = $block->getTestimonials();
                                 <?= $escaper->escapeHtml($testimonial->getCustomerName()) ?>
                             </span>
                             <div class="rating">
-                                <?= $block->getRatingStars((int)$testimonial->getRating()) ?>
+                                <?= $viewModel->getRatingStarsHtml((int)$testimonial->getRating()) ?>
                             </div>
-                        </div>
-                        <div class="testimonial-date">
-                            <?= $escaper->escapeHtml($block->formatDate($testimonial->getCreatedAt(), \IntlDateFormatter::MEDIUM)) ?>
                         </div>
                     </div>
                     <div class="testimonial-message">

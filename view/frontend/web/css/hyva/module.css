@@ -1,0 +1,82 @@
+/* Hyva Theme Testimonial Styles */
+
+/* Primary color variables - customize these to match your theme */
+:root {
+    --color-primary: #3b82f6;
+    --color-primary-darker: #2563eb;
+}
+
+/* Testimonial Card Animations */
+.testimonial-card {
+    @apply transform transition-all duration-300;
+}
+
+.testimonial-card:hover {
+    @apply -translate-y-1;
+}
+
+/* Star Rating Animations */
+.star-rating svg {
+    @apply transition-all duration-150;
+}
+
+/* Form Input Focus States */
+.form-input:focus {
+    @apply ring-2 ring-primary ring-opacity-50;
+}
+
+/* Button Styles */
+.btn-primary {
+    @apply bg-primary text-white font-semibold py-3 px-6 rounded-lg;
+    @apply hover:bg-primary-darker transition-colors duration-200;
+    @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
+}
+
+/* Loading Spinner */
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.animate-spin {
+    animation: spin 1s linear infinite;
+}
+
+/* Empty State */
+.empty-state {
+    @apply text-center py-16;
+}
+
+/* Responsive Grid */
+.testimonials-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    .testimonial-card {
+        @apply bg-gray-800 border-gray-700;
+    }
+}
+
+/* Utility Classes */
+.text-primary {
+    color: var(--color-primary);
+}
+
+.bg-primary {
+    background-color: var(--color-primary);
+}
+
+.bg-primary-darker {
+    background-color: var(--color-primary-darker);
+}
+
+.hover\:bg-primary-darker:hover {
+    background-color: var(--color-primary-darker);
+}
+
+.ring-primary {
+    --tw-ring-color: var(--color-primary);
+}

@@ -1,13 +1,13 @@
 <?php
 /**
- * Copyright © Ashokkumar. All rights reserved.
+ * Copyright © Ashokdubariya. All rights reserved.
  */
 
 declare(strict_types=1);
 
-namespace Ashokkumar\Testimonial\Model;
+namespace Ashokdubariya\Testimonial\Model;
 
-use Ashokkumar\Testimonial\Api\Data\TestimonialInterface;
+use Ashokdubariya\Testimonial\Api\Data\TestimonialInterface;
 use Magento\Framework\Model\AbstractModel;
 
 /**
@@ -18,7 +18,7 @@ class Testimonial extends AbstractModel implements TestimonialInterface
     /**
      * Cache tag
      */
-    public const CACHE_TAG = 'ashokkumar_testimonial';
+    public const CACHE_TAG = 'ashokdubariya_testimonial';
 
     /**
      * @var string
@@ -28,7 +28,7 @@ class Testimonial extends AbstractModel implements TestimonialInterface
     /**
      * @var string
      */
-    protected $_eventPrefix = 'ashokkumar_testimonial';
+    protected $_eventPrefix = 'ashokdubariya_testimonial';
 
     /**
      * Initialize resource model

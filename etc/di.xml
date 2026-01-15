@@ -1,27 +1,27 @@
 <?xml version="1.0"?>
 <!--
 /**
- * Copyright © Ashokkumar. All rights reserved.
+ * Copyright © Ashokdubariya. All rights reserved.
  */
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <!-- API Preferences -->
-    <preference for="Ashokkumar\Testimonial\Api\Data\TestimonialInterface" type="Ashokkumar\Testimonial\Model\Testimonial"/>
-    <preference for="Ashokkumar\Testimonial\Api\Data\TestimonialSearchResultsInterface" type="Ashokkumar\Testimonial\Model\TestimonialSearchResults"/>
-    <preference for="Ashokkumar\Testimonial\Api\TestimonialRepositoryInterface" type="Ashokkumar\Testimonial\Model\TestimonialRepository"/>
+    <preference for="Ashokdubariya\Testimonial\Api\Data\TestimonialInterface" type="Ashokdubariya\Testimonial\Model\Testimonial"/>
+    <preference for="Ashokdubariya\Testimonial\Api\Data\TestimonialSearchResultsInterface" type="Ashokdubariya\Testimonial\Model\TestimonialSearchResults"/>
+    <preference for="Ashokdubariya\Testimonial\Api\TestimonialRepositoryInterface" type="Ashokdubariya\Testimonial\Model\TestimonialRepository"/>
     
     <!-- Virtual Types for Collection Processor -->
-    <virtualType name="Ashokkumar\Testimonial\Model\ResourceModel\Testimonial\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+    <virtualType name="Ashokdubariya\Testimonial\Model\ResourceModel\Testimonial\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
         <arguments>
-            <argument name="mainTable" xsi:type="string">ashokkumar_testimonial</argument>
-            <argument name="resourceModel" xsi:type="string">Ashokkumar\Testimonial\Model\ResourceModel\Testimonial</argument>
+            <argument name="mainTable" xsi:type="string">ashokdubariya_testimonial</argument>
+            <argument name="resourceModel" xsi:type="string">Ashokdubariya\Testimonial\Model\ResourceModel\Testimonial</argument>
         </arguments>
     </virtualType>
     
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
             <argument name="collections" xsi:type="array">
-                <item name="testimonial_listing_data_source" xsi:type="string">Ashokkumar\Testimonial\Model\ResourceModel\Testimonial\Grid\Collection</item>
+                <item name="testimonial_listing_data_source" xsi:type="string">Ashokdubariya\Testimonial\Model\ResourceModel\Testimonial\Grid\Collection</item>
             </argument>
         </arguments>
     </type>

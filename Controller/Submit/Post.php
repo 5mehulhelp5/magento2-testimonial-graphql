@@ -1,15 +1,15 @@
 <?php
 /**
- * Copyright © Ashokkumar. All rights reserved.
+ * Copyright © Ashokdubariya. All rights reserved.
  */
 
 declare(strict_types=1);
 
-namespace Ashokkumar\Testimonial\Controller\Submit;
+namespace Ashokdubariya\Testimonial\Controller\Submit;
 
-use Ashokkumar\Testimonial\Api\Data\TestimonialInterface;
-use Ashokkumar\Testimonial\Api\Data\TestimonialInterfaceFactory;
-use Ashokkumar\Testimonial\Api\TestimonialRepositoryInterface;
+use Ashokdubariya\Testimonial\Api\Data\TestimonialInterface;
+use Ashokdubariya\Testimonial\Api\Data\TestimonialInterfaceFactory;
+use Ashokdubariya\Testimonial\Api\TestimonialRepositoryInterface;
 use Magento\Framework\App\Action\HttpPostActionInterface;
 use Magento\Framework\App\RequestInterface;
 use Magento\Framework\Controller\Result\Redirect;

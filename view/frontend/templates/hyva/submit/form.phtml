@@ -1,0 +1,228 @@
+<?php
+/**
+ * @var \Magento\Framework\View\Element\Template $block
+ * @var \Ashokdubariya\Testimonial\ViewModel\TestimonialForm $viewModel
+ * @var \Magento\Framework\Escaper $escaper
+ */
+$viewModel = $block->getData('view_model');
+?>
+
+<div x-data="testimonialForm()" class="testimonial-submit-form max-w-2xl mx-auto">
+    <!-- Header -->
+    <div class="mb-8">
+        <a href="<?= $escaper->escapeUrl($viewModel->getBackUrl()) ?>" 
+           class="inline-flex items-center text-primary hover:text-primary-darker mb-4">
+            <?= $escaper->escapeHtml(__('Back to Testimonials')) ?>
+        </a>
+    </div>
+
+    <!-- Form -->
+    <form @submit.prevent="submitForm" 
+          action="<?= $escaper->escapeUrl($viewModel->getFormAction()) ?>" 
+          method="post"
+          class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 border border-gray-100 dark:border-gray-700">
+        
+        <input type="hidden" name="form_key" :value="formKey">
+
+        <!-- Customer Name -->
+        <div class="mb-6">
+            <label for="customer_name" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                <?= $escaper->escapeHtml(__('Your Name')) ?>
+                <span class="text-red-500">*</span>
+            </label>
+            <input type="text" 
+                   id="customer_name" 
+                   name="customer_name"
+                   x-model="formData.customer_name"
+                   @blur="validateField('customer_name')"
+                   class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200"
+                   :class="errors.customer_name ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'"
+                   placeholder="<?= $escaper->escapeHtmlAttr(__('Enter your name')) ?>">
+            <p x-show="errors.customer_name" 
+               x-text="errors.customer_name" 
+               class="mt-2 text-sm text-red-600"
+               x-cloak></p>
+        </div>
+
+        <!-- Customer Email -->
+        <div class="mb-6">
+            <label for="customer_email" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                <?= $escaper->escapeHtml(__('Email Address')) ?>
+                <span class="text-red-500">*</span>
+            </label>
+            <input type="email" 
+                   id="customer_email" 
+                   name="customer_email"
+                   x-model="formData.customer_email"
+                   @blur="validateField('customer_email')"
+                   class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200"
+                   :class="errors.customer_email ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'"
+                   placeholder="<?= $escaper->escapeHtmlAttr(__('your.email@example.com')) ?>">
+            <p x-show="errors.customer_email" 
+               x-text="errors.customer_email" 
+               class="mt-2 text-sm text-red-600"
+               x-cloak></p>
+        </div>
+
+        <!-- Rating -->
+        <div class="mb-6">
+            <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
+                <?= $escaper->escapeHtml(__('Your Rating')) ?>
+                <span class="text-red-500">*</span>
+            </label>
+            <div class="flex items-center space-x-2">
+                <span class="rating-summary">
+                <template x-for="star in 5" :key="star">
+                    <button type="button"
+                            @click="setRating(star)"
+                            @mouseenter="hoverRating = star"
+                            @mouseleave="hoverRating = 0"
+                            class="focus:outline-none transition-transform hover:scale-110">
+                        <svg class="w-8 h-8 fill-current transition-colors duration-150"
+                             :class="star <= (hoverRating || formData.rating) ? 'text-yellow-400' : 'text-gray-300 dark:text-gray-600'"
+                             viewBox="0 0 20 20">
+                            <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                        </svg>
+                    </button>
+                </template>
+                </span>
+                <span x-show="formData.rating > 0" 
+                      class="ml-3 text-sm font-medium text-gray-600 dark:text-gray-400"
+                      x-text="formData.rating + '/5'"></span>
+            </div>
+            <input type="hidden" name="rating" :value="formData.rating">
+            <p x-show="errors.rating" 
+               x-text="errors.rating" 
+               class="mt-2 text-sm text-red-600"
+               x-cloak></p>
+        </div>
+
+        <!-- Message -->
+        <div class="mb-6">
+            <label for="message" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                <?= $escaper->escapeHtml(__('Your Testimonial')) ?>
+                <span class="text-red-500">*</span>
+            </label>
+            <textarea id="message" 
+                      name="message"
+                      x-model="formData.message"
+                      @blur="validateField('message')"
+                      rows="5"
+                      class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200 resize-none"
+                      :class="errors.message ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'"
+                      placeholder="<?= $escaper->escapeHtmlAttr(__('Share your experience with us...')) ?>"></textarea>
+            <div class="flex justify-between items-center mt-2">
+                <p x-show="errors.message" 
+                   x-text="errors.message" 
+                   class="text-sm text-red-600"
+                   x-cloak></p>
+                <p class="text-sm text-gray-500 dark:text-gray-400"
+                   x-text="formData.message.length + ' characters'"></p>
+            </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="flex items-center justify-between">
+            <button type="submit"
+                    :disabled="isSubmitting"
+                    class="px-8 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary-darker focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center">
+                <svg x-show="isSubmitting" 
+                     class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" 
+                     fill="none" 
+                     viewBox="0 0 24 24"
+                     x-cloak>
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                <span x-text="isSubmitting ? '<?= $escaper->escapeJs(__('Submitting...')) ?>' : '<?= $escaper->escapeJs(__('Submit')) ?>'"></span>
+            </button>
+        </div>
+    </form>
+</div>
+
+<script>
+function testimonialForm() {
+    return {
+        formKey: '<?= $escaper->escapeJs($viewModel->getFormKey()) ?>',
+        formData: {
+            customer_name: '',
+            customer_email: '',
+            rating: 0,
+            message: ''
+        },
+        errors: {},
+        hoverRating: 0,
+        isSubmitting: false,
+
+        setRating(rating) {
+            this.formData.rating = rating;
+            this.validateField('rating');
+        },
+
+        validateField(field) {
+            const value = this.formData[field];
+            this.errors[field] = '';
+
+            switch(field) {
+                case 'customer_name':
+                    if (!value || value.trim() === '') {
+                        this.errors[field] = '<?= $escaper->escapeJs(__('Name is required')) ?>';
+                    } else if (value.length < 2) {
+                        this.errors[field] = '<?= $escaper->escapeJs(__('Name must be at least 2 characters')) ?>';
+                    } else if (value.length > 255) {
+                        this.errors[field] = '<?= $escaper->escapeJs(__('Name cannot exceed 255 characters')) ?>';
+                    }
+                    break;
+
+                case 'customer_email':
+                    if (!value || value.trim() === '') {
+                        this.errors[field] = '<?= $escaper->escapeJs(__('Email is required')) ?>';
+                    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+                        this.errors[field] = '<?= $escaper->escapeJs(__('Please enter a valid email address')) ?>';
+                    } else if (value.length > 255) {
+                        this.errors[field] = '<?= $escaper->escapeJs(__('Email cannot exceed 255 characters')) ?>';
+                    }
+                    break;
+
+                case 'rating':
+                    if (!value || value < 1 || value > 5) {
+                        this.errors[field] = '<?= $escaper->escapeJs(__('Please select a rating')) ?>';
+                    }
+                    break;
+
+                case 'message':
+                    if (!value || value.trim() === '') {
+                        this.errors[field] = '<?= $escaper->escapeJs(__('Testimonial message is required')) ?>';
+                    } else if (value.length < 10) {
+                        this.errors[field] = '<?= $escaper->escapeJs(__('Message must be at least 10 characters')) ?>';
+                    }
+                    break;
+            }
+        },
+
+        validateForm() {
+            this.validateField('customer_name');
+            this.validateField('customer_email');
+            this.validateField('rating');
+            this.validateField('message');
+
+            return !Object.values(this.errors).some(error => error !== '');
+        },
+
+        async submitForm(event) {
+            if (!this.validateForm()) {
+                return;
+            }
+
+            this.isSubmitting = true;
+
+            // Let the form submit naturally
+            event.target.submit();
+        }
+    }
+}
+</script>
+
+<style>
+[x-cloak] { display: none !important; }
+</style>

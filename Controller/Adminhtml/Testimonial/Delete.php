@@ -1,13 +1,13 @@
 <?php
 /**
- * Copyright © Ashokkumar. All rights reserved.
+ * Copyright © Ashokdubariya. All rights reserved.
  */
 
 declare(strict_types=1);
 
-namespace Ashokkumar\Testimonial\Controller\Adminhtml\Testimonial;
+namespace Ashokdubariya\Testimonial\Controller\Adminhtml\Testimonial;
 
-use Ashokkumar\Testimonial\Api\TestimonialRepositoryInterface;
+use Ashokdubariya\Testimonial\Api\TestimonialRepositoryInterface;
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
 use Magento\Backend\Model\View\Result\Redirect;
@@ -22,7 +22,7 @@ class Delete extends Action implements HttpPostActionInterface
     /**
      * Authorization level
      */
-    public const ADMIN_RESOURCE = 'Ashokkumar_Testimonial::delete';
+    public const ADMIN_RESOURCE = 'Ashokdubariya_Testimonial::delete';
 
     /**
      * @param Context $context

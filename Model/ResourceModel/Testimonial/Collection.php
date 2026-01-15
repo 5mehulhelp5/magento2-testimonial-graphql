@@ -1,14 +1,14 @@
 <?php
 /**
- * Copyright © Ashokkumar. All rights reserved.
+ * Copyright © Ashokdubariya. All rights reserved.
  */
 
 declare(strict_types=1);
 
-namespace Ashokkumar\Testimonial\Model\ResourceModel\Testimonial;
+namespace Ashokdubariya\Testimonial\Model\ResourceModel\Testimonial;
 
-use Ashokkumar\Testimonial\Model\Testimonial;
-use Ashokkumar\Testimonial\Model\ResourceModel\Testimonial as TestimonialResource;
+use Ashokdubariya\Testimonial\Model\Testimonial;
+use Ashokdubariya\Testimonial\Model\ResourceModel\Testimonial as TestimonialResource;
 use Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
 
 /**
@@ -24,7 +24,7 @@ class Collection extends AbstractCollection
     /**
      * @var string
      */
-    protected $_eventPrefix = 'ashokkumar_testimonial_collection';
+    protected $_eventPrefix = 'ashokdubariya_testimonial_collection';
 
     /**
      * @var string

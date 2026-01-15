@@ -1,0 +1,91 @@
+<?php
+/**
+ * @var \Magento\Framework\View\Element\Template $block
+ * @var \Ashokdubariya\Testimonial\ViewModel\TestimonialList $viewModel
+ * @var \Magento\Framework\Escaper $escaper
+ */
+$viewModel = $block->getData('view_model');
+?>
+
+<div x-data="testimonialList()" class="testimonials-page">
+    <?php if ($viewModel->getTotalCount() > 0): ?>
+        <!-- Header Section -->
+        <div class="mb-8">
+            <div class="flex justify-between items-center">
+                <div>
+                    <p class="text-gray-600 dark:text-gray-400 mt-2">
+                        <?= $escaper->escapeHtml(__('Read what our customers have to say')) ?>
+                    </p>
+                </div>
+                <a href="<?= $escaper->escapeUrl($viewModel->getSubmitUrl()) ?>" 
+                   class="inline-flex items-center px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary-darker transition-colors duration-200 shadow-md hover:shadow-lg">
+                    <span><?= $escaper->escapeHtml(__('Submit Testimonial')) ?></span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Testimonials Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <?php foreach ($viewModel->getTestimonials() as $testimonial): ?>
+                <div class="testimonial-card bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300 border border-gray-100 dark:border-gray-700 p-3">
+                    <!-- Customer Info -->
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="flex items-center">
+                            <h3 class="font-semibold text-gray-900 dark:text-white">
+                                <?= $escaper->escapeHtml($testimonial->getCustomerName()) ?>
+                            </h3>
+                        </div>
+                    </div>
+
+                    <!-- Rating Stars -->
+                    <div class="flex items-center mb-4">
+                        <span class="rating-summary">
+                            <?php foreach ($viewModel->getRatingStars((int)$testimonial->getRating()) as $star): ?>
+                                <?php if ($star['filled']): ?>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true" class="fill-current">
+                                        <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"></path>
+                                    </svg>
+                                <?php else: ?>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"></path>
+                                    </svg>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                        </span>
+                    </div>
+                    
+                    <!-- Testimonial Message -->
+                    <div class="testimonial-message">
+                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                            <?= $escaper->escapeHtml($testimonial->getMessage()) ?>
+                        </p>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    <?php else: ?>
+        <!-- Empty State -->
+        <div class="text-center py-16">
+            <h3 class="mt-4 text-xl font-semibold text-gray-900 dark:text-white">
+                <?= $escaper->escapeHtml(__('No testimonials yet')) ?>
+            </h3>
+            <p class="mt-2 text-gray-600 dark:text-gray-400">
+                <?= $escaper->escapeHtml(__('Be the first to share your experience!')) ?>
+            </p>
+            <a href="<?= $escaper->escapeUrl($viewModel->getSubmitUrl()) ?>" 
+               class="mt-6 inline-flex items-center px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary-darker transition-colors duration-200">
+                <?= $escaper->escapeHtml(__('Submit Testimonial')) ?>
+            </a>
+        </div>
+    <?php endif; ?>
+</div>
+
+<script>
+function testimonialList() {
+    return {
+        init() {
+            console.log('Testimonial list initialized');
+        }
+    }
+}
+</script>

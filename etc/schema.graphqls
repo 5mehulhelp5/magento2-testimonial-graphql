@@ -3,26 +3,26 @@ type Query {
         currentPage: Int = 1
         pageSize: Int = 10
         filter: TestimonialFilterInput @doc(description: "Filter testimonials")
-    ): TestimonialsOutput @resolver(class: "Ashokkumar\\Testimonial\\Model\\Resolver\\Testimonials") @doc(description: "Get list of testimonials with pagination and filtering")
+    ): TestimonialsOutput @resolver(class: "Ashokdubariya\\Testimonial\\Model\\Resolver\\Testimonials") @doc(description: "Get list of testimonials with pagination and filtering")
     
     testimonial(
         id: Int! @doc(description: "Testimonial ID")
-    ): TestimonialOutput @resolver(class: "Ashokkumar\\Testimonial\\Model\\Resolver\\Testimonial") @doc(description: "Get testimonial by ID")
+    ): TestimonialOutput @resolver(class: "Ashokdubariya\\Testimonial\\Model\\Resolver\\Testimonial") @doc(description: "Get testimonial by ID")
 }
 
 type Mutation {
     addTestimonial(
         input: AddTestimonialInput! @doc(description: "Testimonial input data")
-    ): AddTestimonialOutput @resolver(class: "Ashokkumar\\Testimonial\\Model\\Resolver\\AddTestimonial") @doc(description: "Add a new testimonial")
+    ): AddTestimonialOutput @resolver(class: "Ashokdubariya\\Testimonial\\Model\\Resolver\\AddTestimonial") @doc(description: "Add a new testimonial")
     
     updateTestimonial(
         id: Int! @doc(description: "Testimonial ID to update")
         input: UpdateTestimonialInput! @doc(description: "Updated testimonial data")
-    ): UpdateTestimonialOutput @resolver(class: "Ashokkumar\\Testimonial\\Model\\Resolver\\UpdateTestimonial") @doc(description: "Update an existing testimonial")
+    ): UpdateTestimonialOutput @resolver(class: "Ashokdubariya\\Testimonial\\Model\\Resolver\\UpdateTestimonial") @doc(description: "Update an existing testimonial")
     
     deleteTestimonial(
         id: Int! @doc(description: "Testimonial ID to delete")
-    ): DeleteTestimonialOutput @resolver(class: "Ashokkumar\\Testimonial\\Model\\Resolver\\DeleteTestimonial") @doc(description: "Delete a testimonial")
+    ): DeleteTestimonialOutput @resolver(class: "Ashokdubariya\\Testimonial\\Model\\Resolver\\DeleteTestimonial") @doc(description: "Delete a testimonial")
 }
 
 type TestimonialsOutput @doc(description: "Testimonials output with pagination") {

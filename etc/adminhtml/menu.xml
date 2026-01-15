@@ -1,17 +1,18 @@
 <?xml version="1.0"?>
 <!--
 /**
- * Copyright © Ashokkumar. All rights reserved.
+ * Copyright © Ashokdubariya. All rights reserved.
  */
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
     <menu>
-        <add id="Ashokkumar_Testimonial::testimonial" 
+        <add id="Ashokdubariya::top_level" title="Ashok Dubariya" module="Ashokdubariya_Testimonial" sortOrder="60" resource="Magento_Backend::content" />
+        <add id="Ashokdubariya_Testimonial::testimonial" 
              title="Testimonials" 
-             module="Ashokkumar_Testimonial" 
+             module="Ashokdubariya_Testimonial" 
              sortOrder="50" 
-             parent="Magento_Backend::content" 
+             parent="Ashokdubariya::top_level" 
              action="testimonial/testimonial/index" 
-             resource="Ashokkumar_Testimonial::testimonial"/>
+             resource="Ashokdubariya_Testimonial::testimonial"/>
     </menu>
 </config>

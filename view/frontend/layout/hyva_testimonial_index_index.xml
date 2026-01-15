@@ -5,14 +5,11 @@
  */
 -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
-    <head>
-        <title>Customer Testimonials</title>
-    </head>
     <body>
         <referenceContainer name="content">
             <block class="Magento\Framework\View\Element\Template" 
                    name="testimonial.list" 
-                   template="Ashokdubariya_Testimonial::list.phtml">
+                   template="Ashokdubariya_Testimonial::hyva/list.phtml">
                 <arguments>
                     <argument name="view_model" xsi:type="object">Ashokdubariya\Testimonial\ViewModel\TestimonialList</argument>
                 </arguments>

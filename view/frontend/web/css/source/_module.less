@@ -1,0 +1,184 @@
+/**
+ * Copyright © Ashokdubariya. All rights reserved.
+ */
+
+//
+//  Testimonial Module Styles
+//  _____________________________________________
+
+//
+//  Variables
+//  ---------------------------------------------
+
+@testimonial-border-color: #e3e3e3;
+@testimonial-bg-color: #fff;
+@testimonial-text-color: #333;
+@testimonial-text-secondary: #555;
+@testimonial-text-muted: #888;
+@testimonial-divider-color: #f0f0f0;
+@testimonial-star-empty: #ddd;
+@testimonial-star-filled: #ffa500;
+@testimonial-shadow-light: 0 2px 4px rgba(0, 0, 0, 0.05);
+@testimonial-shadow-hover: 0 4px 8px rgba(0, 0, 0, 0.1);
+@testimonial-border-radius: 4px;
+@testimonial-spacing-base: 20px;
+@testimonial-spacing-large: 30px;
+@testimonial-spacing-small: 15px;
+
+//
+//  Mixins
+//  ---------------------------------------------
+
+.testimonial-transition(@property: all, @duration: 0.3s, @easing: ease) {
+    transition: @property @duration @easing;
+}
+
+.testimonial-shadow(@shadow: @testimonial-shadow-light) {
+    box-shadow: @shadow;
+}
+
+//
+//  Common Styles
+//  ---------------------------------------------
+
+& when (@media-common = true) {
+    
+    //  Testimonials Page
+    .testimonials-page {
+        margin-bottom: 40px;
+
+        .page-title-wrapper {
+            margin-bottom: @testimonial-spacing-large;
+        }
+    }
+
+    .testimonials-actions {
+        margin-bottom: @testimonial-spacing-large;
+    }
+
+    //  Testimonials List
+    .testimonials-list {
+        display: grid;
+        gap: @testimonial-spacing-base;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .testimonial-item {
+        background: @testimonial-bg-color;
+        border: 1px solid @testimonial-border-color;
+        border-radius: @testimonial-border-radius;
+        padding: @testimonial-spacing-base;
+        .testimonial-shadow();
+        .testimonial-transition(box-shadow);
+
+        &:hover {
+            .testimonial-shadow(@testimonial-shadow-hover);
+        }
+    }
+
+    .testimonial-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: @testimonial-spacing-small;
+        padding-bottom: @testimonial-spacing-small;
+        border-bottom: 1px solid @testimonial-divider-color;
+    }
+
+    .customer-info {
+        flex: 1;
+    }
+
+    .customer-name {
+        display: block;
+        font-size: 18px;
+        font-weight: 600;
+        color: @testimonial-text-color;
+        margin-bottom: 5px;
+    }
+
+    .rating {
+        display: flex;
+        gap: 2px;
+
+        .star {
+            color: @testimonial-star-empty;
+            font-size: 18px;
+
+            &.filled {
+                color: @testimonial-star-filled;
+            }
+        }
+    }
+
+    .testimonial-date {
+        font-size: 13px;
+        color: @testimonial-text-muted;
+        white-space: nowrap;
+    }
+
+    .testimonial-message {
+        color: @testimonial-text-secondary;
+        line-height: 1.6;
+
+        p {
+            margin: 0;
+        }
+    }
+
+    //  Form Styles
+    .testimonial-submit-form {
+        margin: 0 auto;
+
+        h1 {
+            margin-bottom: @testimonial-spacing-large;
+        }
+
+        .fieldset {
+            margin-bottom: @testimonial-spacing-base;
+        }
+
+        .field {
+            margin-bottom: @testimonial-spacing-base;
+        }
+
+        .label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .input-text,
+        .select {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #c2c2c2;
+            border-radius: 3px;
+            height: auto;
+        }
+
+        textarea.input-text {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .actions-toolbar {
+            margin-top: @testimonial-spacing-large;
+        }
+    }
+}
+
+//
+//  Mobile Styles
+//  ---------------------------------------------
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .testimonial-header {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .testimonial-date {
+        align-self: flex-start;
+    }
+}

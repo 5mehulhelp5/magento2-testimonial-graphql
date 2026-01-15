@@ -1,17 +1,17 @@
 # Magento 2 Testimonial Module with GraphQL APIs
 
-This repository contains a **Testimonial** module with **GraphQL** APIs for managing customer testimonials with complete CRUD operations, admin panel, and frontend display.
+This repository contains a **Testimonial** Module with **GraphQL** API support and Hyvä Theme compatibility for managing customer testimonials with complete CRUD operations, admin panel, and frontend display.
 
 ## Key Features
 
-- Complete database schema with indexes
-- Full admin CRUD with UI components
-- Frontend listing and submission pages
-- GraphQL endpoints (queries + mutation)
-- Proper validation and security
-- Luma theme compatible styling
-- Repository pattern and service classes
-- Comprehensive documentation
+- Complete database schema with optimized indexes
+- Full Admin CRUD using Magento UI Components
+- Frontend testimonial listing and submission pages
+- GraphQL endpoints (queries & mutations)
+- Strong validation and security best practices
+- LESS-based styling following Magento 2 standards (Luma)
+- Hyvä theme compatible frontend (no RequireJS / no jQuery)
+- Repository pattern and service layer architecture
 
 ## Requirements
 
@@ -20,25 +20,42 @@ This repository contains a **Testimonial** module with **GraphQL** APIs for mana
 
 ## Module Information
 
-- **Module Name:** `Ashokkumar_Testimonial`
+- **Module Name:** `Ashokdubariya_Testimonial`
+- **Package Name:** `ashokdubariya/module-testimonial`
 - **Module Type:** Magento 2 Custom Module
 - **API Type:** GraphQL
+- **License:** MIT
 
 ## Installation
 
+### Method 1: Composer Installation (Recommended)
+
+```bash
+composer require ashokdubariya/module-testimonial
+php bin/magento module:enable Ashokdubariya_Testimonial
+php bin/magento setup:upgrade
+php bin/magento setup:di:compile
+php bin/magento setup:static-content:deploy -f
+php bin/magento cache:flush
+```
+
+### Method 2: Manual Installation
+
 1. Copy the module to Magento:
 
-```
-app/code/Ashokkumar/Testimonial
+```bash
+mkdir -p app/code/Ashokdubariya/Testimonial
+# Copy module files to app/code/Ashokdubariya/Testimonial
 ```
 
 2. Run Magento commands:
 
 ```bash
+php bin/magento module:enable Ashokdubariya_Testimonial
 php bin/magento setup:upgrade
 php bin/magento setup:di:compile
+php bin/magento setup:static-content:deploy -f
 php bin/magento cache:flush
-php bin/magento setup:static-content:deploy
 ```
 
 ## GraphQL Endpoint
@@ -591,4 +608,59 @@ mutation {
 - **Admin Panel**: `/admin/testimonial/testimonial/index`
 - **Frontend Listing**: `/testimonial`
 - **Submit Form**: `/testimonial/submit`
-- **Module Location**: `/app/code/Ashokkumar/Testimonial`
+- **Module Location**: `/app/code/Ashokdubariya/Testimonial`
+
+---
+
+## Styling
+
+This module uses **LESS** for styling, following Magento 2 best practices:
+- Main styles: `view/frontend/web/css/source/_module.less`
+- Theme extensions: `view/frontend/web/css/source/_extend.less`
+- Responsive design with Magento's breakpoint system
+- Customizable LESS variables for easy theming
+
+---
+
+## Contributing
+
+Contributions are welcome! Please follow these guidelines:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+Please ensure your code follows Magento 2 coding standards.
+
+---
+
+## Support
+
+- **Issues**: [GitHub Issues](https://github.com/ashokdubariya/magento2-testimonial-graphql/issues)
+- **Source**: [GitHub Repository](https://github.com/ashokdubariya/magento2-testimonial-graphql)
+
+---
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## Author
+
+**Ashokdubariya Dubariya**
+
+---
+
+## Changelog
+
+### Version 1.0.0
+- Initial release
+- GraphQL API support (queries and mutations)
+- Admin panel CRUD operations
+- Frontend testimonial listing and submission
+- LESS-based styling
+- Composer installation support

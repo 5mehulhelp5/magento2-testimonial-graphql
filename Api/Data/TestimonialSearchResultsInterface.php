@@ -1,11 +1,11 @@
 <?php
 /**
- * Copyright © Ashokkumar. All rights reserved.
+ * Copyright © Ashokdubariya. All rights reserved.
  */
 
 declare(strict_types=1);
 
-namespace Ashokkumar\Testimonial\Api\Data;
+namespace Ashokdubariya\Testimonial\Api\Data;
 
 use Magento\Framework\Api\SearchResultsInterface;
 
@@ -18,14 +18,14 @@ interface TestimonialSearchResultsInterface extends SearchResultsInterface
     /**
      * Get testimonials list
      *
-     * @return \Ashokkumar\Testimonial\Api\Data\TestimonialInterface[]
+     * @return \Ashokdubariya\Testimonial\Api\Data\TestimonialInterface[]
      */
     public function getItems();
 
     /**
      * Set testimonials list
      *
-     * @param \Ashokkumar\Testimonial\Api\Data\TestimonialInterface[] $items
+     * @param \Ashokdubariya\Testimonial\Api\Data\TestimonialInterface[] $items
      * @return $this
      */
     public function setItems(array $items);

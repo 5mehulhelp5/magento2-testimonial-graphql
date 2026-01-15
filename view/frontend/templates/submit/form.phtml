@@ -1,18 +1,20 @@
 <?php
 /**
- * @var \Ashokkumar\Testimonial\Block\Submit\Form $block
+ * @var \Magento\Framework\View\Element\Template $block
+ * @var \Ashokdubariya\Testimonial\ViewModel\TestimonialForm $viewModel
  * @var \Magento\Framework\Escaper $escaper
  */
+$viewModel = $block->getData('view_model');
 ?>
 <div class="testimonial-submit-form">
     <?php /* <h1><?= $escaper->escapeHtml(__('Submit Your Testimonial')) ?></h1> */ ?>
     
-    <form action="<?= $escaper->escapeUrl($block->getFormAction()) ?>" 
+    <form action="<?= $escaper->escapeUrl($viewModel->getFormAction()) ?>" 
           method="post" 
           id="testimonial-form" 
           class="form testimonial">
         
-        <?= $block->getBlockHtml('formkey') ?>
+        <input type="hidden" name="form_key" value="<?= $escaper->escapeHtmlAttr($viewModel->getFormKey()) ?>"/>
         
         <fieldset class="fieldset">
             <legend class="legend"><span><?= $escaper->escapeHtml(__('Your Information')) ?></span></legend>
@@ -54,9 +56,10 @@
                 <div class="control">
                     <select name="rating" id="rating" class="select" required data-validate="{required:true}">
                         <option value=""><?= $escaper->escapeHtml(__('Please select...')) ?></option>
-                        <?php foreach ($block->getRatingOptions() as $value => $label): ?>
-                            <option value="<?= $escaper->escapeHtmlAttr($value) ?>">
-                                <?= $escaper->escapeHtml($label) ?>
+
+                        <?php foreach ($viewModel->getRatingOptions() as $option): ?>
+                            <option value="<?= $escaper->escapeHtmlAttr($option['value']) ?>">
+                                <?= $escaper->escapeHtml($option['label']) ?>
                             </option>
                         <?php endforeach; ?>
                     </select>
@@ -81,7 +84,7 @@
         <div class="actions-toolbar">
             <div class="primary">
                 <button type="submit" class="action submit primary">
-                    <span><?= $escaper->escapeHtml(__('Submit Testimonial')) ?></span>
+                    <span><?= $escaper->escapeHtml(__('Submit')) ?></span>
                 </button>
             </div>
         </div>

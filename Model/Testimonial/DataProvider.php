@@ -1,13 +1,13 @@
 <?php
 /**
- * Copyright © Ashokkumar. All rights reserved.
+ * Copyright © Ashokdubariya. All rights reserved.
  */
 
 declare(strict_types=1);
 
-namespace Ashokkumar\Testimonial\Model\Testimonial;
+namespace Ashokdubariya\Testimonial\Model\Testimonial;
 
-use Ashokkumar\Testimonial\Model\ResourceModel\Testimonial\CollectionFactory;
+use Ashokdubariya\Testimonial\Model\ResourceModel\Testimonial\CollectionFactory;
 use Magento\Framework\App\Request\DataPersistorInterface;
 use Magento\Ui\DataProvider\AbstractDataProvider;
 
@@ -59,12 +59,12 @@ class DataProvider extends AbstractDataProvider
             $this->loadedData[$testimonial->getId()] = $testimonial->getData();
         }
 
-        $data = $this->dataPersistor->get('ashokkumar_testimonial');
+        $data = $this->dataPersistor->get('ashokdubariya_testimonial');
         if (!empty($data)) {
             $testimonial = $this->collection->getNewEmptyItem();
             $testimonial->setData($data);
             $this->loadedData[$testimonial->getId()] = $testimonial->getData();
-            $this->dataPersistor->clear('ashokkumar_testimonial');
+            $this->dataPersistor->clear('ashokdubariya_testimonial');
         }
 
         return $this->loadedData;

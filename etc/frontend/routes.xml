@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 <!--
 /**
- * Copyright © Ashokkumar. All rights reserved.
+ * Copyright © Ashokdubariya. All rights reserved.
  */
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
     <router id="standard">
         <route id="testimonial" frontName="testimonial">
-            <module name="Ashokkumar_Testimonial"/>
+            <module name="Ashokdubariya_Testimonial"/>
         </route>
     </router>
 </config>

@@ -1,17 +1,22 @@
 <?xml version="1.0"?>
 <!--
 /**
- * Copyright © Ashokkumar. All rights reserved.
+ * Copyright © Ashokdubariya. All rights reserved.
  */
 -->
-<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <head>
         <title>Submit Testimonial</title>
-        <css src="Ashokkumar_Testimonial::css/testimonials.css"/>
     </head>
     <body>
         <referenceContainer name="content">
-            <block class="Ashokkumar\Testimonial\Block\Submit\Form" name="testimonial.submit.form" template="Ashokkumar_Testimonial::submit/form.phtml"/>
+            <block class="Magento\Framework\View\Element\Template" 
+                   name="testimonial.submit.form" 
+                   template="Ashokdubariya_Testimonial::submit/form.phtml">
+                <arguments>
+                    <argument name="view_model" xsi:type="object">Ashokdubariya\Testimonial\ViewModel\TestimonialForm</argument>
+                </arguments>
+            </block>
         </referenceContainer>
     </body>
 </page>

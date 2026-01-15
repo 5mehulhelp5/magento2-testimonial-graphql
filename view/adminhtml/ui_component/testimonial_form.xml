@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!--
 /**
- * Copyright © Ashokkumar. All rights reserved.
+ * Copyright © Ashokdubariya. All rights reserved.
  */
 -->
 <form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
@@ -14,10 +14,10 @@
     </argument>
     <settings>
         <buttons>
-            <button name="back" class="Ashokkumar\Testimonial\Block\Adminhtml\Testimonial\Edit\BackButton"/>
-            <button name="delete" class="Ashokkumar\Testimonial\Block\Adminhtml\Testimonial\Edit\DeleteButton"/>
-            <button name="save" class="Ashokkumar\Testimonial\Block\Adminhtml\Testimonial\Edit\SaveButton"/>
-            <button name="save_and_continue" class="Ashokkumar\Testimonial\Block\Adminhtml\Testimonial\Edit\SaveAndContinueButton"/>
+            <button name="back" class="Ashokdubariya\Testimonial\Block\Adminhtml\Testimonial\Edit\BackButton"/>
+            <button name="delete" class="Ashokdubariya\Testimonial\Block\Adminhtml\Testimonial\Edit\DeleteButton"/>
+            <button name="save" class="Ashokdubariya\Testimonial\Block\Adminhtml\Testimonial\Edit\SaveButton"/>
+            <button name="save_and_continue" class="Ashokdubariya\Testimonial\Block\Adminhtml\Testimonial\Edit\SaveAndContinueButton"/>
         </buttons>
         <namespace>testimonial_form</namespace>
         <dataScope>data</dataScope>
@@ -34,7 +34,7 @@
         <settings>
             <submitUrl path="testimonial/testimonial/save"/>
         </settings>
-        <dataProvider class="Ashokkumar\Testimonial\Model\Testimonial\DataProvider" name="testimonial_form_data_source">
+        <dataProvider class="Ashokdubariya\Testimonial\Model\Testimonial\DataProvider" name="testimonial_form_data_source">
             <settings>
                 <requestFieldName>testimonial_id</requestFieldName>
                 <primaryFieldName>testimonial_id</primaryFieldName>
@@ -122,7 +122,7 @@
             <formElements>
                 <select>
                     <settings>
-                        <options class="Ashokkumar\Testimonial\Model\Source\Rating"/>
+                        <options class="Ashokdubariya\Testimonial\Model\Source\Rating"/>
                     </settings>
                 </select>
             </formElements>
@@ -144,7 +144,7 @@
             <formElements>
                 <select>
                     <settings>
-                        <options class="Ashokkumar\Testimonial\Model\Source\Status"/>
+                        <options class="Ashokdubariya\Testimonial\Model\Source\Status"/>
                     </settings>
                 </select>
             </formElements>

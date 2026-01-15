@@ -1,11 +1,11 @@
 <?php
 /**
- * Copyright © Ashokkumar. All rights reserved.
+ * Copyright © Ashokdubariya. All rights reserved.
  */
 
 declare(strict_types=1);
 
-namespace Ashokkumar\Testimonial\Controller\Adminhtml\Testimonial;
+namespace Ashokdubariya\Testimonial\Controller\Adminhtml\Testimonial;
 
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
@@ -21,7 +21,7 @@ class Index extends Action implements HttpGetActionInterface
     /**
      * Authorization level
      */
-    public const ADMIN_RESOURCE = 'Ashokkumar_Testimonial::testimonial';
+    public const ADMIN_RESOURCE = 'Ashokdubariya_Testimonial::testimonial';
 
     /**
      * @param Context $context
@@ -43,7 +43,7 @@ class Index extends Action implements HttpGetActionInterface
     {
         /** @var Page $resultPage */
         $resultPage = $this->resultPageFactory->create();
-        $resultPage->setActiveMenu('Ashokkumar_Testimonial::testimonial');
+        $resultPage->setActiveMenu('Ashokdubariya_Testimonial::testimonial');
         $resultPage->getConfig()->getTitle()->prepend(__('Testimonials'));
 
         return $resultPage;

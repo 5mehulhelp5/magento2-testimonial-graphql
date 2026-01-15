@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!--
 /**
- * Copyright © Ashokkumar. All rights reserved.
+ * Copyright © Ashokdubariya. All rights reserved.
  */
 -->
 <listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
@@ -30,7 +30,7 @@
             </storageConfig>
             <updateUrl path="mui/index/render"/>
         </settings>
-        <aclResource>Ashokkumar_Testimonial::testimonial</aclResource>
+        <aclResource>Ashokdubariya_Testimonial::testimonial</aclResource>
         <dataProvider class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider" name="testimonial_listing_data_source">
             <settings>
                 <requestFieldName>id</requestFieldName>
@@ -157,7 +157,7 @@
         </column>
         <column name="status" component="Magento_Ui/js/grid/columns/select">
             <settings>
-                <options class="Ashokkumar\Testimonial\Model\Source\Status"/>
+                <options class="Ashokdubariya\Testimonial\Model\Source\Status"/>
                 <filter>select</filter>
                 <editor>
                     <editorType>select</editorType>
@@ -173,7 +173,7 @@
                 <label translate="true">Created At</label>
             </settings>
         </column>
-        <actionsColumn name="actions" class="Ashokkumar\Testimonial\Ui\Component\Listing\Column\Actions">
+        <actionsColumn name="actions" class="Ashokdubariya\Testimonial\Ui\Component\Listing\Column\Actions">
             <settings>
                 <indexField>testimonial_id</indexField>
                 <resizeEnabled>false</resizeEnabled>

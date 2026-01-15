@@ -1,13 +1,14 @@
 <?php
 /**
- * Copyright © Ashokkumar. All rights reserved.
+ * Copyright © Ashokdubariya. All rights reserved.
  */
 
 declare(strict_types=1);
 
-namespace Ashokkumar\Testimonial\Controller\Adminhtml\Testimonial;
+namespace Ashokdubariya\Testimonial\Controller\Adminhtml\Testimonial;
 
-use Ashokkumar\Testimonial\Model\ResourceModel\Testimonial\CollectionFactory;
+use Ashokdubariya\Testimonial\Api\TestimonialRepositoryInterface;
+use Ashokdubariya\Testimonial\Model\ResourceModel\Testimonial\CollectionFactory;
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
 use Magento\Backend\Model\View\Result\Redirect;
@@ -24,17 +25,19 @@ class MassStatus extends Action implements HttpPostActionInterface
     /**
      * Authorization level
      */
-    public const ADMIN_RESOURCE = 'Ashokkumar_Testimonial::save';
+    public const ADMIN_RESOURCE = 'Ashokdubariya_Testimonial::save';
 
     /**
      * @param Context $context
      * @param Filter $filter
      * @param CollectionFactory $collectionFactory
+     * @param TestimonialRepositoryInterface $testimonialRepository
      */
     public function __construct(
         Context $context,
         private readonly Filter $filter,
-        private readonly CollectionFactory $collectionFactory
+        private readonly CollectionFactory $collectionFactory,
+        private readonly TestimonialRepositoryInterface $testimonialRepository
     ) {
         parent::__construct($context);
     }
@@ -49,16 +52,32 @@ class MassStatus extends Action implements HttpPostActionInterface
         try {
             $collection = $this->filter->getCollection($this->collectionFactory->create());
             $status = (int)$this->getRequest()->getParam('status');
-            $collectionSize = $collection->getSize();
-
-            foreach ($collection as $testimonial) {
-                $testimonial->setStatus($status);
-                $testimonial->save();
+            
+            // Validate status value
+            if (!in_array($status, [0, 1], true)) {
+                throw new LocalizedException(__('Invalid status value. Status must be either 0 or 1.'));
             }
 
-            $this->messageManager->addSuccessMessage(
-                __('A total of %1 record(s) have been updated.', $collectionSize)
-            );
+            $collectionSize = $collection->getSize();
+            $updatedCount = 0;
+
+            foreach ($collection as $testimonial) {
+                try {
+                    $testimonial->setStatus($status);
+                    $this->testimonialRepository->save($testimonial);
+                    $updatedCount++;
+                } catch (\Exception $e) {
+                    $this->messageManager->addErrorMessage(
+                        __('Error updating testimonial ID %1: %2', $testimonial->getTestimonialId(), $e->getMessage())
+                    );
+                }
+            }
+
+            if ($updatedCount > 0) {
+                $this->messageManager->addSuccessMessage(
+                    __('A total of %1 record(s) have been updated.', $updatedCount)
+                );
+            }
         } catch (LocalizedException $e) {
             $this->messageManager->addErrorMessage($e->getMessage());
         } catch (\Exception $e) {

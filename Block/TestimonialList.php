@@ -1,15 +1,15 @@
 <?php
 /**
- * Copyright © Ashokkumar. All rights reserved.
+ * Copyright © Ashokdubariya. All rights reserved.
  */
 
 declare(strict_types=1);
 
-namespace Ashokkumar\Testimonial\Block;
+namespace Ashokdubariya\Testimonial\Block;
 
-use Ashokkumar\Testimonial\Api\Data\TestimonialInterface;
-use Ashokkumar\Testimonial\Model\ResourceModel\Testimonial\Collection;
-use Ashokkumar\Testimonial\Model\ResourceModel\Testimonial\CollectionFactory;
+use Ashokdubariya\Testimonial\Api\Data\TestimonialInterface;
+use Ashokdubariya\Testimonial\Model\ResourceModel\Testimonial\Collection;
+use Ashokdubariya\Testimonial\Model\ResourceModel\Testimonial\CollectionFactory;
 use Magento\Framework\View\Element\Template;
 use Magento\Framework\View\Element\Template\Context;
 

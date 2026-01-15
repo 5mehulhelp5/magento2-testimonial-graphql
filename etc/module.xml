@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <!--
 /**
- * Copyright © Ashokkumar. All rights reserved.
+ * Copyright © Ashokdubariya. All rights reserved.
  */
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
-    <module name="Ashokkumar_Testimonial" setup_version="1.0.0">
+    <module name="Ashokdubariya_Testimonial" setup_version="1.0.0">
         <sequence>
             <module name="Magento_Backend"/>
             <module name="Magento_Ui"/>
