@@ -1,6 +1,6 @@
 # Magento 2 Testimonial Module with GraphQL APIs
 
-This repository contains a **Testimonial** Module with **GraphQL** API support and Hyvä Theme compatibility for managing customer testimonials with complete CRUD operations, admin panel, and frontend display.
+This repository contains a **Testimonial** module with **GraphQL** API support and Hyvä Theme compatibility for managing customer testimonials with complete CRUD operations, admin panel, and frontend display.
 
 ## Key Features
 
@@ -213,8 +213,6 @@ query {
 }
 ```
 
----
-
 ### 2. Get Testimonial by ID
 
 ```graphql
@@ -250,8 +248,6 @@ query {
 }
 ```
 
----
-
 ## Mutations
 
 ### 3. Add Testimonial
@@ -285,8 +281,6 @@ mutation {
   }
 }
 ```
-
----
 
 ### 4. Update Testimonial
 
@@ -381,8 +375,6 @@ mutation {
 }
 ```
 
----
-
 ### 5. Delete Testimonial
 
 ```graphql
@@ -420,8 +412,6 @@ mutation {
 }
 ```
 
----
-
 ## Filter Options
 
 ### Available Filter Fields
@@ -441,7 +431,6 @@ mutation {
 | `from` | Greater than or equal | `{ from: "2026-01-01" }` |
 | `to` | Less than or equal | `{ to: "2026-01-31" }` |
 
----
 
 ## cURL Examples
 
@@ -471,8 +460,6 @@ curl -X POST https://your-magento-site.com/graphql \
     "query": "mutation { deleteTestimonial(id: 5) { status message } }"
   }'
 ```
-
----
 
 ## Common Use Cases
 
@@ -558,8 +545,6 @@ mutation {
 }
 ```
 
----
-
 ## Validation Rules
 
 ### Add/Update Testimonial
@@ -574,13 +559,9 @@ mutation {
 - Date format: `YYYY-MM-DD` or `YYYY-MM-DD HH:MM:SS`
 - Use `like` for partial matches (automatically adds % wildcards)
 
----
-
 ## Status Values
 - `0` = Disabled (default for customer submissions)
 - `1` = Enabled (visible in public queries)
-
----
 
 ## Complete API Summary
 
@@ -592,16 +573,12 @@ mutation {
 | `updateTestimonial` | Mutation | Update existing testimonial |
 | `deleteTestimonial` | Mutation | Delete testimonial |
 
----
-
 ## Testing with GraphQL Playground
 
 1. Navigate to: `https://your-magento-site.com/graphql`
 2. Use the schema explorer to see all available fields
 3. Test queries and mutations interactively
 4. View auto-complete suggestions
-
----
 
 ## Additional Resources
 
@@ -610,57 +587,11 @@ mutation {
 - **Submit Form**: `/testimonial/submit`
 - **Module Location**: `/app/code/Ashokdubariya/Testimonial`
 
----
-
-## Styling
-
-This module uses **LESS** for styling, following Magento 2 best practices:
-- Main styles: `view/frontend/web/css/source/_module.less`
-- Theme extensions: `view/frontend/web/css/source/_extend.less`
-- Responsive design with Magento's breakpoint system
-- Customizable LESS variables for easy theming
-
----
-
-## Contributing
-
-Contributions are welcome! Please follow these guidelines:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-Please ensure your code follows Magento 2 coding standards.
-
----
-
 ## Support
 
-- **Issues**: [GitHub Issues](https://github.com/ashokdubariya/magento2-testimonial-graphql/issues)
 - **Source**: [GitHub Repository](https://github.com/ashokdubariya/magento2-testimonial-graphql)
-
----
+- **Issues**: [GitHub Issues](https://github.com/ashokdubariya/magento2-testimonial-graphql/issues)
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-## Author
-
-**Ashokkumar Dubariya**
-
----
-
-## Changelog
-
-### Version 1.0.0
-- Initial release
-- GraphQL API support (queries and mutations)
-- Admin panel CRUD operations
-- Frontend testimonial listing and submission
-- LESS-based styling
-- Composer installation support
